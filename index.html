@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Accessibility Scripts -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
+    <script src="https://www.negishim.com/accessibility/accessibility_pro_group255.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        // Accessibility Configuration
+        accessibility_rtl = false;
+        pixel_from_side = 15;
+        pixel_from_start = 140;
+    </script>
+    <!-- Accessibility Scripts End -->
+
+    <script defer src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./assets/images/favicon.ico">
+    <title>הראל חברה לביטוח</title>
+</head>
+
+
+<header>
+    <div id="logo">
+        <svg class="CH-MuiSvgIcon-root CH-jss8" viewBox="0 0 87 32" aria-hidden="true" data-hrl-bo="atm-harelLogo"
+            width="250" height="70">
+            <path fill="#0088C9"
+                d="M75.827 4.187c3.653 2.686 2.867 7.258-.008 10.048-.245-1.952-1.338-3.173-2.62-3.931-2.59-1.533-7.923-1.361-11.891 2.83-.93.982-1.692 2.534-2.266 3.618-1.561-3.53-.424-7.395 2.84-10.841 4.178-4.414 10.12-4.536 13.945-1.724">
+            </path>
+            <path fill="#F7B207"
+                d="M62.353 15.152c.535-4.458 4.95-6.074 8.84-5.017-1.594 1.185-2.12 2.729-2.147 4.2-.052 2.975 2.765 7.437 8.435 8.726 1.33.303 3.075.176 4.315.123-2.324 3.097-6.292 4.06-10.954 3-5.971-1.358-9.05-6.364-8.489-11.032">
+            </path>
+            <path fill="#2D9D3A"
+                d="M78.893 20.767c-4.189 1.773-9.824-1.987-9.406-6.481 1.206 1.54 3.548 2.188 5.34 1.181 2.625-1.474 5.158-6.076 3.457-11.556-.399-1.284-1.384-2.71-2.05-3.741 3.886.434 6.717 3.336 8.116 7.842 1.792 5.77-1.071 10.898-5.457 12.755">
+            </path>
+            <g transform="translate(0 10.178)">
+                <path fill="#4F5254" d="M0 .106V8.03h6.953L2.625 20.56h4.821l4.428-12.59V4.86H4.789V.106z"></path>
+            </g>
+            <g transform="translate(13.116 14.936)">
+                <path fill="#4F5254"
+                    d="M15.81 15.803s-2.788-4.516-4.33-6.639c1.805-.568 3.773-1.674 3.806-4.695V.102h-4.888v6.072c0 .867-.36.747-.36.747L5.905.103H.033l4.428 5.652C2.591 6.652.723 7.4.723 11.557v4.247l4.887-.001V8.746c0-.808.525-.748.525-.748l4.296 7.805h5.38z">
+                </path>
+            </g>
+            <path fill="#4F5254"
+                d="M40.373 30.739V19.973c0-3.858-1.541-4.935-5.182-4.935h-5.085v3.17h3.314c1.705-.03 2.033.509 2.033 2.034v10.497h4.92zM56.638 30.739V19.973c0-3.858-1.575-4.935-5.216-4.935h-7.938v3.17h6.2c1.673 0 2.034.539 2.034 2.064v10.467h4.92zm-8.332-9.42l-4.821 1.016v8.404h4.821v-9.42z">
+            </path>
+        </svg>
+        <h1 id="title">זימון פגישות</h1>
+    </div>
+    <button class="allMeetingButton" onclick="changePage()">כל הפגישות</button>
+</header>
+
+<body>
+    <form id="formMeeting" onsubmit="addMeeting();return false">
+        <h1>פרטי הפגישה</h1>
+        <label>מטרת הפגישה: <b>*</b></label>
+        <input type="text" id="meetingGoal" minlength="5" maxlength="300 " placeholder="הכנס טקסט לבחירתך..."
+            required><br />
+
+        <label>בניין הפגישה: <b>*</b></label>
+        <select id="meetingBuilding" required>
+            <option selected disabled value="">בחר בניין פגישה...</option>
+        </select><br />
+        <label>קומת הפגישה: <b>*</b></label>
+        <select id="meetingFloor" required>
+            <option selected disabled value="">בחר קומת פגישה...</option>
+        </select><br />
+
+        <div class="date-timeBox">
+            <label>תאריך: <b>*</b></label>
+            <input type="date" id="meetingDate" required>
+            <label>שעת התחלה: <b>*</b></label>
+            <input type="time" id="meetingStartTime" class="inputWidth" onchange="timeChecking()" required>
+            <label>שעת סיום: <b>*</b></label>
+            <input type="time" id="meetingEndTime" class="inputWidth" onblur="timeChecking()" required>
+        </div>
+
+        <label>שם מארח הפגישה: <b>*</b></label>
+        <select id="meetingHost" required>
+            <option selected disabled value="">בחר מארח...</option>
+        </select>
+
+        <hr>
+
+        <h1>הוסף אורחים</h1>
+        <p>לחץ ״חדש״ להזמנת אורחים חדשים:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th><button type="button" id="openPopup" onclick="modalPopup()">חדש</button></th>
+                    <th>תעודת זהות</th>
+                    <th>שם פרטי</th>
+                    <th>שם משפחה</th>
+                    <th>טלפון נייד</th>
+                    <th>הערות</th>
+                </tr>
+            </thead>
+
+            <tbody id="tBody">
+                <tr>
+                    <td colspan="6">לא הוספו אורחים לזימון</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button id="addMeetingButton">הזמן פגישה</button><br />
+        <b>
+            <li class="boxText">נא ליידע את האורח שעליו להגיע/להצטייד בתעודה מזהה</li>
+        </b>
+    </form>
+
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <form class="formGuest" onsubmit="AddGuest(); return false">
+                <span class="closeSpan">&times;</span>
+
+                <label>תעודת זהות: <b>*</b></label>
+                <input type="text" id="personId" pattern="\b\d{9}\b" title="ניתן למלא רק ספרות באורך של 9 תווים."
+                    placeholder="מלא תעודת זהות בעלת 9 ספרות" max="0" maxlength="9"
+                    oninput="this.value = this.value.replace(/[^0-9]/g, '');" required><br />
+
+                <label>שם פרטי: <b>*</b></label>
+                <input type="text" id="firstName" maxlength="20"
+                    oninput="this.value = this.value.replace(/[^א-ת׳a-zA-Z.]/g, '');" placeholder="מלא שם פרטי"
+                    required><br />
+
+                <label>שם משפחה: <b>*</b></label>
+                <input type="text" id="lastName" maxlength="20"
+                    oninput="this.value = this.value.replace(/[^א-ת׳a-zA-Z.]/g, '');" placeholder="מלא שם המשפחה"
+                    required><br />
+                <label>טלפון נייד: <b>*</b></label>
+                <input type="text" id="phoneNumber" placeholder="מלא מספר טלפון נייד"
+                    pattern="(?:(?:(\+?972|\(\+?972\)|\+?\(972\))(?:\s|\.|-)?([1-9]\d?))|(0[23489]{1})|(0[57]{1}[0-9]))(?:\s|\.|-)?([^0\D]{1}\d{2}(?:\s|\.|-)?\d{4})"
+                    title="הכנס מס׳ טלפון חוקי" maxlength="10" required><br />
+                <label>הערות:</label>
+                <textarea id="comment" placeholder="אכנס טקסט לבחירתך(לא חובה)" maxlength="300"></textarea><br />
+
+                <button id="updateButton">עדכן</button>
+                <button id="cancel">בטל</button>
+            </form>
+
+        </div>
+
+    </div>
+
+    <div class="popup">
+        <span class="popupText" id="myPopup">הפגישה נשמרה בהצלחה!</span>
+        <span class="popupText" id="validationPopup">נא להוסיף מוזמן כדי להמשיך!</span>
+    </div>
+</body>
+
+<footer>Copyright © 2023 Yuval Haimov. All rights reserved *אתר לדומגא בלבד*</footer>
+
+
+
+</html>

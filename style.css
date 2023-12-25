@@ -1,0 +1,344 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #fff1e1, #c2bbb2);
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    height: 52vw;
+}
+
+header {
+    padding-bottom: 10px;
+}
+
+header,
+footer {
+    background-color: #EBECF1;
+    text-align: center;
+    border-radius: 10px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 5px;
+}
+
+#tableAllMeetings {
+    margin-top: 100px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #f2f2f2;
+}
+
+#openPopup {
+    padding: 10px 10px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #0088C9;
+    cursor: pointer;
+}
+
+.boxText {
+    margin-top: 10px;
+}
+
+th,
+td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 8px;
+}
+
+th {
+    background-color: #F7B205;
+    color: black;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.formGuest {
+    display: flex;
+    flex-direction: column;
+}
+
+.formGuest label {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 16px;
+    width: 100%;
+}
+
+.formGuest input {
+    display: block;
+    margin: 1px auto;
+    height: 24px;
+    width: 50%;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+textarea {
+    display: block;
+    margin: 5px auto;
+    height: 100px;
+    width: 80%;
+    resize: none;
+    padding-top: 5px;
+    padding-right: 5px;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+.formGuest input::placeholder,
+textarea::placeholder {
+    text-align: center;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal Content */
+.modal-content {
+    background: linear-gradient(to right, #fff1e1, #ebe2d7);
+    margin: 4% auto;
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid #888;
+    text-align: center;
+    width: 40%;
+}
+
+/* The Close Button */
+.closeSpan {
+    color: #aaa;
+    text-align: right;
+    float: right;
+    font-size: 34px;
+    font-weight: bold;
+}
+
+.closeSpan:hover,
+.closeSpan:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* Popup container */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.popup .popupText {
+    visibility: hidden;
+    width: 200px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: fixed;
+    z-index: 1;
+    top: 10%;
+    left: 45%;
+}
+
+.popup .popupText::after {
+    content: "";
+    position: fixed;
+    top: 10%;
+    left: 45%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+#logo {
+    display: flex;
+    text-align: right;
+    padding-top: 10px;
+}
+
+#title {
+    margin-right: 400px;
+    font-size: 30px;
+}
+
+
+.allMeetingButton,
+.homePageButton {
+    position: fixed;
+    left: 30px;
+    top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: #F7B205;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+.allMeetingButton:hover {
+    background-color: #0088C9;
+    color: #fff
+}
+
+b {
+    color: red;
+}
+
+#formMeeting input {
+    display: inline-block;
+    height: 4vh;
+    width: 25vw;
+    padding-right: 5px;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+#formMeeting {
+    width: 95%;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+#formMeeting label {
+    display: inline-block;
+    width: 15vw;
+    padding-right: 10px;
+}
+
+.date-timeBox {
+    display: flex;
+}
+
+#formMeeting select {
+    padding-right: 5px;
+    display: inline-block;
+    margin-bottom: 15px;
+    width: 25vw;
+    border: 1px solid black;
+    margin-top: 5px;
+    border-radius: 5px;
+    height: 5vh;
+}
+
+#formMeeting .inputWidth {
+    display: inline-block;
+    width: 8%;
+    margin-right: -90px;
+}
+
+.modal-content {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.modal-content button {
+    padding: 10px 20px;
+    margin: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-content #updateButton {
+    background-color: #2D9D39;
+    color: white;
+}
+
+.modal-content #cancel {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.modal-content #cancel:hover,
+#updateButton:hover {
+    background-color: #333;
+    color: white;
+}
+
+
+#addMeetingButton {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+#addMeetingButton:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+#addMeetingButton:active {
+    transform: scale(0.95);
+}
