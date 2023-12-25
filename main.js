@@ -97,6 +97,9 @@ function pushDataToHtml() {
     meetingHost.innerHTML += optionsMeetingHost;
 }
 
+getDataFromLocalStorage();
+pushDataToHtml();
+
 // Validation Check for Meeting Time
 function timeChecking() {
 
