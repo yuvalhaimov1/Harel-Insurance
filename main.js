@@ -299,7 +299,7 @@ function changePage() {
 }
 
 // Initialization: Load Data and Populate HTML on Index Page
-if (window.location.pathname.endsWith("/index.html")) {
+if (window.location.pathname.endsWith("/Harel-Insurance/index.html")) {
     getDataFromLocalStorage();
     pushDataToHtml();
 }
